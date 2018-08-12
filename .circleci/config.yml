@@ -1,0 +1,17 @@
+version: 2
+jobs:
+  build:
+    branches:
+      only:
+        - master
+    docker:
+      - image: circleci/python:2.7-jessie
+    working_directory: ~/site
+    steps:
+      - checkout
+      - run:
+          name: Install awscli
+          command: sudo pip install awscli
+      - run:
+          name: Deploy to S3
+          command: aws s3 sync public s3://callathum.com --delete
