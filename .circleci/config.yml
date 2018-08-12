@@ -14,4 +14,4 @@ jobs:
           command: sudo pip install awscli
       - run:
           name: Deploy to S3
-          command: aws s3 sync public s3://callathum.com --delete
+          command: aws s3 sync public s3://callathump.com --delete
